@@ -58,6 +58,7 @@ function appendMessage(name, img, side, text) {
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
 
+  speak(text)
 }
 
 
@@ -71,6 +72,17 @@ function botResponse() {
   }, delay);
 }
 
+
+function speak(text) {
+    var speechObject = new SpeechSynthesisUtterance();
+    speechObject.volume = 1;
+    speechObject.rate = 1;
+    speechObject.pitch = 1;
+  
+    speechObject.text = text;
+  
+    window.speechSynthesis.speak(speechObject);
+  }
 
 // // Utils
 // function get(selector, root = document) {
